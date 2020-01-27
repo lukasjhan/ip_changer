@@ -4,15 +4,12 @@ using namespace noname_core::network;
 
 int main(int argc, char** argv)
 {
-	if (argc != 3) return -1;
+	if (argc != 2) return -1;
 
-	char* s = argv[1];
-	int s_len = strlen(s);
-	char* d = argv[2];
-	int d_len = strlen(d);
+	std::string ip = argv[1];
 
 	WindivertNetworkAdaper adapter;
-	ipflowmanager manager(adapter, ip_address("192.168.0.4"));
+	ipflowmanager manager(adapter, ip_address(ip));
 
 	manager.start();
 	manager.loop();
